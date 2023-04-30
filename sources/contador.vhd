@@ -8,6 +8,7 @@ entity CONT_3DIG is
         clk: in std_logic;
         reset: in std_logic;
         enable: in std_logic;
+        load: in std_logic;
    
         dig_in0, dig_in1,dig_in2: in std_logic_vector(3 downto 0);
         num_out: out std_logic_vector(9 downto 0);
@@ -27,7 +28,7 @@ architecture Behavioral of CONT_3DIG is
     process(clk, reset, enable, dig_in0, dig_in1, dig_in2)
     begin
     
-    if reset = '0' then        
+    if reset = '0' and load='0' then        
 
         if rising_edge(clk) and enable='1' then
             if count =999 then 
@@ -53,11 +54,17 @@ architecture Behavioral of CONT_3DIG is
             end if;
             end if;
         end if;
-    else
+
+    elsif (load = '1' and reset='0') then
         count <= to_integer(unsigned(dig_in2))*100 + to_integer(unsigned(dig_in1))*10 + to_integer(unsigned(dig_in0));
         dig0_s <= unsigned(dig_in0);
         dig1_s <= unsigned(dig_in1);
         dig2_s <= unsigned(dig_in2);
+    else
+        count<=0;
+        dig0_s <= (others => '0');
+        dig1_s <= (others => '0');
+        dig2_s <= (others => '0');
     end if;
 
     end process;

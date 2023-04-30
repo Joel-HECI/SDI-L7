@@ -9,8 +9,10 @@ entity main is
         clk1hz: out std_logic;
         -- I/O P1
         clka: out std_logic;
-        -- I/O 
+        -- I/O U18
         rst : in std_logic;
+        -- I/O W19
+        load: in std_logic;
         -- I/O W17
         en: in std_logic;
         -- I/O W16 V16
@@ -70,6 +72,7 @@ architecture Behavioral of main is
     cont: entity work.CONT_3DIG port map(
         clk => clk_a,
         reset => rst,
+        load => load,
         enable => en,
         dig_in0 => dig_in0,
         dig_in1 => dig_in1,

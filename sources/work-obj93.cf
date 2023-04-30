@@ -1,19 +1,19 @@
 v 4
-file . "contador.vhd" "afe83cd6d5da6e97db29fc9fd8c1d26948c3c87b" "20230430194553.771":
-  entity cont_3dig at 1( 0) + 0 on 17;
-  architecture behavioral of cont_3dig at 20( 406) + 0 on 18;
-file . "./Test/testbench-CONT.vhd" "c89eb44410244385ed40e851e8f8e6d23d90b4f9" "20230430190603.649":
-  entity testbench_cont at 1( 0) + 0 on 13;
-  architecture behavioral of testbench_cont at 8( 108) + 0 on 14;
-file . "mux4a1.vhd" "9d405ce3ce1990288109f71d891554225d1db8e4" "20230430194553.769":
-  entity mux4a1 at 2( 1) + 0 on 15;
-  architecture arch_mux41 of mux4a1 at 16( 274) + 0 on 16;
+file . "./Test/testbench-main.vhd" "68507c727ff146da110061c6e89ad701681c94fa" "20230430210202.504":
+  entity testbench_main at 1( 0) + 0 on 27;
+  architecture behavioral of testbench_main at 7( 82) + 0 on 28;
+file . "main2.vhd" "1e5d7bfba82aeeac3577b868ff01e53809ab7e05" "20230430210202.504":
+  entity main2 at 1( 0) + 0 on 25;
+  architecture behavioral of main2 at 16( 413) + 0 on 26;
 file . "VIS_DIN_4DIG.vhd" "bbe085e1b8e927ae49f3d31b7591d3a3f155eed7" "20230430192505.948":
   entity vis_din_4dig at 8( 334) + 0 on 4;
   architecture behavioral of vis_din_4dig at 21( 659) + 0 on 4;
-file . "main2.vhd" "4a12d749040be02cf7d86175b9732ad167edb7bc" "20230430194553.771":
-  entity main2 at 1( 0) + 0 on 19;
-  architecture behavioral of main2 at 15( 385) + 0 on 20;
-file . "./Test/testbench-main.vhd" "3c1a01a8567e7a6c4aa0d0ab7d5abf5702f12591" "20230430194553.771":
-  entity testbench_main at 1( 0) + 0 on 21;
-  architecture behavioral of testbench_main at 7( 82) + 0 on 22;
+file . "mux4a1.vhd" "9d405ce3ce1990288109f71d891554225d1db8e4" "20230430210202.503":
+  entity mux4a1 at 2( 1) + 0 on 21;
+  architecture arch_mux41 of mux4a1 at 16( 274) + 0 on 22;
+file . "./Test/testbench-CONT.vhd" "c89eb44410244385ed40e851e8f8e6d23d90b4f9" "20230430204000.964":
+  entity testbench_cont at 1( 0) + 0 on 19;
+  architecture behavioral of testbench_cont at 8( 108) + 0 on 20;
+file . "contador.vhd" "4cb68410b9147ec0042f936275c49c910492e145" "20230430210202.504":
+  entity cont_3dig at 1( 0) + 0 on 23;
+  architecture behavioral of cont_3dig at 21( 434) + 0 on 24;

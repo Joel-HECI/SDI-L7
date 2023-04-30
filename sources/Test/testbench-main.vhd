@@ -7,6 +7,7 @@ end entity;
 architecture Behavioral of testbench_MAIN is
     signal clk_vd,clk_1hz, clk_2hz, clk_4hz, clk_8hz: std_logic:='0';
     signal rst: std_logic := '0';
+    signal load: std_logic := '0';
     signal en: std_logic := '1';
     signal s: std_logic_vector(1 downto 0) := (others => '0');
     signal dig_in0,dig_in1,dig_in2: std_logic_vector(3 downto 0) := (others => '0');
@@ -36,6 +37,7 @@ begin
             clk_8hz => clk_8hz,
 
             rst => rst,
+            load => load,
             en => en,
             s => s,
             dig_in0 => dig_in0,
@@ -100,20 +102,20 @@ begin
     process
     begin
     wait for 10 ns;
-    s <= "00";
-    wait for 2500 ms;
-    en <= '0';
-    wait for 3000 ms;
-    en <= '1';
-    wait for 4800 ms;
-    s <= "01";
-    wait for 5600 ms;
-    dig_in0 <= "0001";
-    dig_in1 <= "0010";
-    dig_in2 <= "0011";
+    s <= "11";
+
+    wait for 6250 ms;
+    dig_in0 <= "0110";
+    dig_in1 <= "1001";
+    dig_in2 <= "0010";
+    load <= '1';
+    wait for 10 ns;
+    load <= '0';
+    wait for 27000 ms;
     rst <= '1';
     wait for 100 ns;
     rst <= '0';
+
     wait;
     end process;
     

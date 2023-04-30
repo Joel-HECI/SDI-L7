@@ -5,6 +5,7 @@ entity main2 is
     port(
         clk_vd,clk_1hz, clk_2hz, clk_4hz, clk_8hz: in std_logic;
         rst : in std_logic;
+        load: in std_logic;
         en: in std_logic;
         s: in std_logic_vector(1 downto 0);
         dig_in0,dig_in1,dig_in2: in std_logic_vector(3 downto 0);
@@ -31,13 +32,14 @@ architecture Behavioral of main2 is
     cont: entity work.CONT_3DIG port map(
         clk => clk_a,
         reset => rst,
+        load => load,
         enable => en,
         dig_in0 => dig_in0,
         dig_in1 => dig_in1,
         dig_in2 => dig_in2,
-        dig0 => dig0,
-        dig1 => dig1,
-        dig2 => dig2
+        dig0 => dig_0,
+        dig1 => dig_1,
+        dig2 => dig_2
 
     );
 
