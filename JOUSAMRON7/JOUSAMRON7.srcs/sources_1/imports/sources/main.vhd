@@ -6,7 +6,7 @@ entity main is
         -- I/O W5
         clk : in std_logic;
         -- I/O L1
-        clk1hz: out std_logic;
+        clk_o1hz: out std_logic;
         -- I/O P1
         clka: out std_logic;
         -- I/O U18
@@ -19,11 +19,11 @@ entity main is
         s: in std_logic_vector(1 downto 0);
         -- I/O V17
         s1: in std_logic;
-        -- I/O R2 T1 U1 W2 - R3 T2 T3 V2 - W13 W14 V15 W15 
+        -- I/O R2 T1 U1 W2 R3 T2 T3 V2 W13 W14 V15 W15 
         dig_in0,dig_in1,dig_in2: in std_logic_vector(3 downto 0);
-        -- I/O U7 V5 U5 V8 U8 W6 W7
+        -- I/O U7 V5 U5 V8 U8 W6 W7 V7
         SAL7: out std_logic_vector(6 downto 0);
-        -- I/O W4 V4 U4 U2 
+        -- I/O W4 V4 U4 U2
         ANODS: out std_logic_vector(3 downto 0)
         );
 end entity;
@@ -55,12 +55,12 @@ architecture Behavioral of main is
         CLK_o => clk_8hz
     );
     
-    clk_VD: entity work.DIV_VD port map(
+    c_clk_VD: entity work.DIV_VD port map(
         Clk => clk,
         CLK_o => clk_vd
     );
 
-    mux: entity wok.mux4a1 port map(
+    mux: entity work.mux4a1 port map(
         s => s,
         IA => clk_1hz,
         IB => clk_2hz,
@@ -85,11 +85,11 @@ architecture Behavioral of main is
 
     vis_din: entity work.VIS_DIN_4DIG port map(
         clk => clk_vd,
-        BCD1 => c_dig0,
-        BCD2 => c_dig1,
-        BCD3 => c_dig2,
-        BCD4 => "0000",
-        SAL7 => SAL7,
+        BCD1 => "0000",
+        BCD2 => c_dig2,
+        BCD3 => c_dig1,
+        BCD4 => c_dig0,
+        SAL7SEG => SAL7,
         ANODS => ANODS
     ); 
 
@@ -98,19 +98,19 @@ architecture Behavioral of main is
         IA => dig0,
         IB => dig1,
         IC => dig2,
-        ID => open,
+
         IE => dig_in0,
         II => dig_in1,
         IG => dig_in2,
-        IH => open,
+
 
         Y0 => c_dig0,
         Y1 => c_dig1,
         Y2 => c_dig2
-        Y3 => open
+ 
 
     );
 
-    clk1hz <= clk_1hz;
+    clk_o1hz <= clk_1hz;
     clka <= clk_a;
     end architecture;

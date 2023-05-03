@@ -1,0 +1,9 @@
+
+****** Webtalk v2020.1 (64-bit)
+  **** SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
+  **** IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+source C:/Users/electronica.ECINUT/Downloads/JOUSAMRON7/JOUSAMRON7.hw/webtalk/labtool_webtalk.tcl -notrace
+webtalk_transmit: Time (s): cpu = 00:00:00 ; elapsed = 00:00:11 . Memory (MB): peak = 89.750 ; gain = 0.000
+INFO: [Common 17-206] Exiting Webtalk at Wed May  3 11:20:02 2023...
